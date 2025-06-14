@@ -1,5 +1,6 @@
 using HabitTracker.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using HabitTracker.Application.DependencyInjection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddEndpointsApiExplorer();  // For minimal APIs too
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddApplicationServices();
 
 builder.Services.AddCors(options =>
 {
@@ -27,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowLocalFrontend"); 
+app.UseCors("AllowLocalFrontend");
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseAuthorization();
