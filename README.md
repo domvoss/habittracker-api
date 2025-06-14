@@ -38,13 +38,13 @@ This is the backend API for a personal habit-tracking application, built with:
 4. Apply database migrations:
 
     ```bash
-    dotnet ef database update
+    dotnet ef database update --project HabitTracker.Infrastructure --startup-project HabitTracker
     ```
     
 ### Running The Application
 
   ```bash
-  dotnet run --project HabitTracker.API
+  dotnet run --project HabitTracker
   ```
 
 Navigate to https://localhost:5001/swagger to explore the API.
