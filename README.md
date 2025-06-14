@@ -21,6 +21,8 @@ A personal habit-tracking application built with:
 
 1. Clone the repository
 2. Update the connection string in `appsettings.json`
+  > 💡 This project uses [User Secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets/) for local configuration.
+  > You can find required keys in `appsettings.json`, and override them using `dotnet user-secrets` or update the strings directly in `appsettings.json`.
 3. Apply database migrations:
 
 ```bash
