@@ -27,12 +27,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowLocalFrontend");
-
+app.UseCors("AllowLocalFrontend"); 
 app.UseHttpsRedirection();
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
