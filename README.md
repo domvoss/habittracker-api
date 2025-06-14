@@ -25,3 +25,7 @@ A personal habit-tracking application built with:
 
 ```bash
 Update-Database
+```
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
