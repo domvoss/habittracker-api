@@ -31,6 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowLocalFrontend");
+
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseAuthorization();
