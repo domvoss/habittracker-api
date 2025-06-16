@@ -15,7 +15,7 @@ namespace HabitTracker.API.Controllers
         [HttpGet("")]
         public IActionResult GetData()
         {
-            return Ok(new { message = "you have hit the endpoint" });
+            return Success("you have hit the endpoint");
         }
     }
 }
