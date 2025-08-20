@@ -1,6 +1,7 @@
 using HabitTracker.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using HabitTracker.Application.DependencyInjection;
+using HabitTracker.API.Middleware;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();  // For minimal APIs too
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddApplicationServices();
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Services.AddCors(options =>
 {
@@ -33,7 +36,6 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowLocalFrontend");
 
 app.UseHttpsRedirection();
-app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseAuthorization();
 app.MapControllers();
 
